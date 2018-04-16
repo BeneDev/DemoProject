@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BeneScene.unity
     guid: a0cb43c41861ae241b456e6ef0bd1e95
+  - enabled: 1
+    path: Assets/GameOver.unity
+    guid: 96eec34bc7a5e844d9b1e6cf4b8dd18f

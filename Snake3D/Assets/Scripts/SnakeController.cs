@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SnakeController : MonoBehaviour {
 
@@ -15,7 +16,6 @@ public class SnakeController : MonoBehaviour {
     [SerializeField] GameObject snakeEntity;
     [SerializeField] int framesBetweenMoves;
     int frameCounter;
-    GameObject newTail;
     GameObject newHead;
    
 
@@ -63,6 +63,7 @@ public class SnakeController : MonoBehaviour {
     void Die()
     {
         print("Die");
+        SceneManager.LoadScene(2);
     }
     
     private void Update()
@@ -184,7 +185,7 @@ public class SnakeController : MonoBehaviour {
 
     public void Expand()
     {
-        newTail = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
+        GameObject newTail = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
         newTail.transform.parent = gameObject.transform;
         newTail.GetComponent<MeshRenderer>().enabled = false;
         entities.AddLast(newTail);

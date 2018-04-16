@@ -10,10 +10,9 @@ public class FoodSpawner : MonoBehaviour {
     public Transform botBorder;
     public Transform leftBorder;
     public Transform rightBorder;
-    float targetTime = 3f;
-
-    [SerializeField] float time;
-    [SerializeField] float repeatRate;
+    [SerializeField] float spawnDelay = 3f;
+    float spawnTimer;
+    
     public bool isSpawned;
 	
 	// Update is called once per frame
@@ -27,7 +26,7 @@ public class FoodSpawner : MonoBehaviour {
 
     void Spawn()
     {
-        if (targetTime <= 0)
+        if (spawnTimer <= 0)
         {
 
         int z = (int)Random.Range(botBorder.position.z,topBorder.position.z);
@@ -40,8 +39,8 @@ public class FoodSpawner : MonoBehaviour {
         }
         if(isSpawned == true)
         {
-            targetTime = 3f;
+            spawnTimer = spawnDelay;
         }
-        targetTime -= Time.deltaTime;
+        spawnTimer -= Time.deltaTime;
     }
 }
