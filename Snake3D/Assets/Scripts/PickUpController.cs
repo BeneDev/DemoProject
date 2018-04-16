@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpController : MonoBehaviour {
 
     GameObject snake;
+   // SnakeController sC;
     FoodSpawner foodScript;
     GameObject foodManager;
     [SerializeField] AudioClip eat;
@@ -13,6 +14,7 @@ public class PickUpController : MonoBehaviour {
     private void Awake()
     {
         snake = GameObject.FindGameObjectWithTag("Player");
+       // sC = snake.GetComponent<SnakeController>();
         foodManager = GameObject.Find("FoodController");
         foodScript = foodManager.GetComponent<FoodSpawner>();
         if (spawnParticles)
@@ -29,6 +31,7 @@ public class PickUpController : MonoBehaviour {
             snake.GetComponent<SnakeController>().Expand();
             foodScript.isSpawned = false;
             AudioSource.PlayClipAtPoint(eat,gameObject.transform.position);
+           // sC.framesBetweenMoves--;
             Destroy(gameObject);
         }
         

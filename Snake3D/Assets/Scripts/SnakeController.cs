@@ -14,7 +14,7 @@ public class SnakeController : MonoBehaviour {
     }
 
     [SerializeField] GameObject snakeEntity;
-    [SerializeField] int framesBetweenMoves;
+    [SerializeField] public int framesBetweenMoves;
     int frameCounter;
     GameObject newHead;
    
@@ -207,9 +207,6 @@ public class SnakeController : MonoBehaviour {
     //    }
     //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        print("triggered");
-    }
+    
 
 }
