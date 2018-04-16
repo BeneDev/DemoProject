@@ -15,6 +15,9 @@ public class SnakeController : MonoBehaviour {
     [SerializeField] GameObject snakeEntity;
     [SerializeField] int framesBetweenMoves;
     int frameCounter;
+    GameObject newTail;
+    GameObject newHead;
+    private Camera cam;
 
     LinkedList<GameObject> entities = new LinkedList<GameObject>();
 
@@ -40,13 +43,14 @@ public class SnakeController : MonoBehaviour {
         {
             entities.AddFirst(transform.GetChild(0).gameObject);
         }
+        cam = Camera.main;
     }
 
     void CheckIfEatingSelf()
     {
         foreach(GameObject obj in entities)
         {
-            if(entities.First.Value.gameObject != obj)
+            if(entities.First.Value.gameObject != obj && obj.GetComponent<MeshRenderer>().enabled == true)
             {
                 if (entities.First.Value.gameObject.transform.position == obj.transform.position)
                 {
@@ -68,7 +72,7 @@ public class SnakeController : MonoBehaviour {
         if (frameCounter <= 0)
         {
             // Add a new entity as a head
-            GameObject newHead = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
+            newHead = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
             newHead.transform.parent = gameObject.transform;
             entities.AddFirst(newHead);
 
@@ -102,6 +106,11 @@ public class SnakeController : MonoBehaviour {
         {
             frameCounter--;
         }
+
+        print(newHead.transform.position.x);
+        print(newTail.transform.position.x);
+        //print(newHead.transform.position.y);
+        
     }
 
     private void ReadInput()
@@ -154,8 +163,9 @@ public class SnakeController : MonoBehaviour {
 
     public void Expand()
     {
-        GameObject newTail = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
+        newTail = Instantiate(snakeEntity, entities.First.Value.gameObject.transform.position, transform.rotation);
         newTail.transform.parent = gameObject.transform;
+        newTail.GetComponent<MeshRenderer>().enabled = false;
         entities.AddLast(newTail);
     }
 
@@ -174,4 +184,10 @@ public class SnakeController : MonoBehaviour {
     //        print("Die");
     //    }
     //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("triggered");
+    }
+
 }
