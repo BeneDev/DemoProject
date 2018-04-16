@@ -8,15 +8,18 @@ public class PickUpController : MonoBehaviour {
     FoodSpawner foodScript;
     GameObject foodManager;
     [SerializeField] AudioClip eat;
+    [SerializeField] ParticleSystem spawnParticles;
 
     private void Awake()
     {
         snake = GameObject.FindGameObjectWithTag("Player");
-        //print("Search player");
         foodManager = GameObject.Find("FoodController");
         foodScript = foodManager.GetComponent<FoodSpawner>();
-       
-        
+        if (spawnParticles)
+        {
+            ParticleSystem partSys = Instantiate(spawnParticles, transform.position, transform.rotation);
+            partSys.transform.parent = transform;
+        }
     }
 
     private void Update()

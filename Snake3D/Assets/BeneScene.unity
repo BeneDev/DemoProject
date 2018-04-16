@@ -113,62 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &14896778 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1679796728016518, guid: c51ec72171df33b4ebb979690dcdb402,
-    type: 2}
-  m_PrefabInternal: {fileID: 152976305}
---- !u!65 &14896779
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 14896778}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &14896780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 14896778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0166f0a4668b9439722bd295125840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &142180068 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1964293786462078, guid: 0a787aab6756a6345bdfb4cbb445fe40,
-    type: 2}
-  m_PrefabInternal: {fileID: 874901279}
---- !u!65 &142180069
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 142180068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &142180070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 142180068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0166f0a4668b9439722bd295125840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &152976305
 Prefab:
   m_ObjectHideFlags: 0
@@ -302,34 +246,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4793337468687862, guid: 0a787aab6756a6345bdfb4cbb445fe40,
     type: 2}
   m_PrefabInternal: {fileID: 874901279}
---- !u!1 &716041573 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1056595050684956, guid: bef924c89df856c4f8d8e968339d68b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 805401340}
---- !u!65 &716041574
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716041573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &716041575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716041573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0166f0a4668b9439722bd295125840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &793525076 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4196931686226226, guid: e5871099ca02dcb479e358d401fd79ca,
@@ -626,34 +542,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f0dfa819886108a4096f73f2b2c67917, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1515011288 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1733990623040352, guid: e5871099ca02dcb479e358d401fd79ca,
-    type: 2}
-  m_PrefabInternal: {fileID: 850606473}
---- !u!65 &1515011289
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1515011288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1515011290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1515011288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f0166f0a4668b9439722bd295125840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1744021878
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,11 +651,6 @@ Prefab:
       propertyPath: topBorder
       value: 
       objectReference: {fileID: 1846178191}
-    - target: {fileID: 114543588042786972, guid: 26ad9e318b3cc3543b3248b76a1ca11c,
-        type: 2}
-      propertyPath: spawnDelay
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26ad9e318b3cc3543b3248b76a1ca11c, type: 2}
   m_IsPrefabParent: 0

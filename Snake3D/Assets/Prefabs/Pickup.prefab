@@ -52,11 +52,12 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: cf1115bc20f5bd1408ccffa0d98e78d6, type: 2}
+  - {fileID: 2100000, guid: 14f70b36cfe3c4c4b8cae38ed69bdfe5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -67,6 +68,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -94,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eat: {fileID: 8300000, guid: df3783527cde81a4dadb666bffaf92f6, type: 3}
+  spawnParticles: {fileID: 198099156149092884, guid: 05a9733c25f0fac41b783bd9e84aca60,
+    type: 2}
 --- !u!136 &136989209759355996
 CapsuleCollider:
   m_ObjectHideFlags: 1

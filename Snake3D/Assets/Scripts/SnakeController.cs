@@ -107,30 +107,30 @@ public class SnakeController : MonoBehaviour {
         {
             frameCounter--;
         }
+        BorderManagement();
+    }
 
-        print(newHead.transform.position.x);
-        
-        print(newHead.transform.position.z);
-        
-        if(newHead.transform.position.x >= 28)
+    private void BorderManagement()
+    {
+        if (newHead.transform.position.x >= 28)
         {
-            
+
             newHead.transform.position = new Vector3(-26, newHead.transform.position.y, newHead.transform.position.z);
         }
 
         if (newHead.transform.position.x <= -28)
         {
-           
+
             newHead.transform.position = new Vector3(27, newHead.transform.position.y, newHead.transform.position.z);
         }
         if (newHead.transform.position.z >= 18)
         {
-            
+
             newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, -13);
         }
         if (newHead.transform.position.z <= -14)
         {
-           
+
             newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, 17);
         }
     }
