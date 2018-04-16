@@ -17,7 +17,7 @@ public class SnakeController : MonoBehaviour {
     int frameCounter;
     GameObject newTail;
     GameObject newHead;
-    private Camera cam;
+   
 
     LinkedList<GameObject> entities = new LinkedList<GameObject>();
 
@@ -43,7 +43,7 @@ public class SnakeController : MonoBehaviour {
         {
             entities.AddFirst(transform.GetChild(0).gameObject);
         }
-        cam = Camera.main;
+
     }
 
     void CheckIfEatingSelf()
@@ -108,9 +108,30 @@ public class SnakeController : MonoBehaviour {
         }
 
         print(newHead.transform.position.x);
-        print(newTail.transform.position.x);
-        //print(newHead.transform.position.y);
         
+        print(newHead.transform.position.z);
+        
+        if(newHead.transform.position.x >= 28)
+        {
+            
+            newHead.transform.position = new Vector3(-26, newHead.transform.position.y, newHead.transform.position.z);
+        }
+
+        if (newHead.transform.position.x <= -28)
+        {
+           
+            newHead.transform.position = new Vector3(27, newHead.transform.position.y, newHead.transform.position.z);
+        }
+        if (newHead.transform.position.z >= 18)
+        {
+            
+            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, -13);
+        }
+        if (newHead.transform.position.z <= -14)
+        {
+           
+            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, 17);
+        }
     }
 
     private void ReadInput()
