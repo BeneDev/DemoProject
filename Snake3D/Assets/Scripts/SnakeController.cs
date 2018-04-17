@@ -18,6 +18,7 @@ public class SnakeController : MonoBehaviour {
     [Range(0, 1), SerializeField] int playerNumber = 0;
     int frameCounter;
     GameObject newHead;
+    [SerializeField] GameObject otherPlayer;
    
 
     LinkedList<GameObject> entities = new LinkedList<GameObject>();
@@ -51,6 +52,30 @@ public class SnakeController : MonoBehaviour {
 
     }
 
+    void CheckIfCollidingWithOtherPlayer()
+    {
+        if(otherPlayer)
+        {
+            foreach (GameObject obj in otherPlayer.GetComponent<SnakeController>().Entities)
+            {
+                if (entities.First.Value.gameObject != obj && obj.GetComponent<MeshRenderer>().enabled == true)
+                {
+                    if (entities.First.Value.gameObject.transform.position == obj.transform.position)
+                    {
+                        if(playerNumber == 0)
+                        {
+                            GameManager.Instance.winningPlayer = 2;
+                        }
+                        else
+                        {
+                            GameManager.Instance.winningPlayer = 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     void CheckIfEatingSelf()
     {
         foreach(GameObject obj in entities)
@@ -67,8 +92,21 @@ public class SnakeController : MonoBehaviour {
 
     void Die()
     {
-        print("Die");
-        SceneManager.LoadScene(2);
+        if(otherPlayer)
+        {
+            if (playerNumber == 0)
+            {
+                GameManager.Instance.winningPlayer = 2;
+            }
+            else
+            {
+                GameManager.Instance.winningPlayer = 1;
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
     
     private void Update()

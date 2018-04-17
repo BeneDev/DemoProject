@@ -27,12 +27,15 @@ public class PickUpController : MonoBehaviour {
     {
         foreach(GameObject snake in snakes)
         {
-            if (transform.position == snake.GetComponent<SnakeController>().Entities.First.Value.transform.position)
+            if (snake)
             {
-                snake.GetComponent<SnakeController>().Expand();
-                foodScript.isSpawned = false;
-                AudioSource.PlayClipAtPoint(eat, gameObject.transform.position);
-                Destroy(gameObject);
+                if (transform.position == snake.GetComponent<SnakeController>().Entities.First.Value.transform.position)
+                {
+                    snake.GetComponent<SnakeController>().Expand();
+                    foodScript.isSpawned = false;
+                    AudioSource.PlayClipAtPoint(eat, gameObject.transform.position);
+                    Destroy(gameObject);
+                }
             }
         }
     }
