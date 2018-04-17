@@ -14,4 +14,14 @@ public class Menu : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void Multiplayer()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void WinScreen()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
