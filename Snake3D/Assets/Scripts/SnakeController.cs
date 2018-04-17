@@ -15,6 +15,7 @@ public class SnakeController : MonoBehaviour {
 
     [SerializeField] GameObject snakeEntity;
     [SerializeField] int framesBetweenMoves;
+    [Range(0, 1), SerializeField] int playerNumber = 0;
     int frameCounter;
     GameObject newHead;
    
@@ -28,7 +29,7 @@ public class SnakeController : MonoBehaviour {
         up,
         down
     };
-
+    
     Direction playerDirection = Direction.right;
 
     private void Awake()
@@ -42,6 +43,10 @@ public class SnakeController : MonoBehaviour {
         else
         {
             entities.AddFirst(transform.GetChild(0).gameObject);
+        }
+        if(playerNumber == 1)
+        {
+            playerDirection = Direction.left;
         }
 
     }
@@ -137,48 +142,98 @@ public class SnakeController : MonoBehaviour {
 
     private void ReadInput()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (playerNumber == 0)
         {
-            //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, 90));
-            switch (playerDirection)
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                case Direction.right:
-                    playerDirection = Direction.down;
-                    break;
+                //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, 90));
+                switch (playerDirection)
+                {
+                    case Direction.right:
+                        playerDirection = Direction.down;
+                        break;
 
-                case Direction.down:
-                    playerDirection = Direction.left;
-                    break;
+                    case Direction.down:
+                        playerDirection = Direction.left;
+                        break;
 
-                case Direction.left:
-                    playerDirection = Direction.up;
-                    break;
+                    case Direction.left:
+                        playerDirection = Direction.up;
+                        break;
 
-                case Direction.up:
-                    playerDirection = Direction.right;
-                    break;
+                    case Direction.up:
+                        playerDirection = Direction.right;
+                        break;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, -90));
+                switch (playerDirection)
+                {
+                    case Direction.right:
+                        playerDirection = Direction.up;
+                        break;
+
+                    case Direction.down:
+                        playerDirection = Direction.right;
+                        break;
+
+                    case Direction.left:
+                        playerDirection = Direction.down;
+                        break;
+
+                    case Direction.up:
+                        playerDirection = Direction.left;
+                        break;
+                }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (playerNumber == 1)
         {
-            //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, -90));
-            switch (playerDirection)
+            if (Input.GetKeyDown(KeyCode.D))
             {
-                case Direction.right:
-                    playerDirection = Direction.up;
-                    break;
+                //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, 90));
+                switch (playerDirection)
+                {
+                    case Direction.right:
+                        playerDirection = Direction.down;
+                        break;
 
-                case Direction.down:
-                    playerDirection = Direction.right;
-                    break;
+                    case Direction.down:
+                        playerDirection = Direction.left;
+                        break;
 
-                case Direction.left:
-                    playerDirection = Direction.down;
-                    break;
+                    case Direction.left:
+                        playerDirection = Direction.up;
+                        break;
 
-                case Direction.up:
-                    playerDirection = Direction.left;
-                    break;
+                    case Direction.up:
+                        playerDirection = Direction.right;
+                        break;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                //entities.First.Value.gameObject.transform.Rotate(new Vector3(0, -90));
+                switch (playerDirection)
+                {
+                    case Direction.right:
+                        playerDirection = Direction.up;
+                        break;
+
+                    case Direction.down:
+                        playerDirection = Direction.right;
+                        break;
+
+                    case Direction.left:
+                        playerDirection = Direction.down;
+                        break;
+
+                    case Direction.up:
+                        playerDirection = Direction.left;
+                        break;
+                }
             }
         }
     }
@@ -206,10 +261,4 @@ public class SnakeController : MonoBehaviour {
     //        print("Die");
     //    }
     //}
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("triggered");
-    }
-
 }
