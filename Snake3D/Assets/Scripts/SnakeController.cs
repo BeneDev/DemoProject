@@ -17,7 +17,15 @@ public class SnakeController : MonoBehaviour {
     [SerializeField] int framesBetweenMoves;
     int frameCounter;
     GameObject newHead;
-   
+    Camera cam;
+    float cam1;
+    float cam2;
+    float cam3;
+    float cam4;
+    float offsetX;
+    float offsetZ;
+    float offsetHeight;
+
 
     LinkedList<GameObject> entities = new LinkedList<GameObject>();
 
@@ -43,8 +51,11 @@ public class SnakeController : MonoBehaviour {
         {
             entities.AddFirst(transform.GetChild(0).gameObject);
         }
-
+        //cam = GetComponent<Camera>();
+        cam = Camera.main;
+        ResolutionAdjustment();
     }
+
 
     void CheckIfEatingSelf()
     {
@@ -108,30 +119,93 @@ public class SnakeController : MonoBehaviour {
             frameCounter--;
         }
         BorderManagement();
+              
+       
+        // TODO: 
+        
+        print(cam1);
+        print(cam2);
+        print(cam3);
+        print(cam4);
+        
+        
+        print(offsetHeight);
+        print(offsetX);
+        print(offsetZ);
     }
+    
+    void ResolutionAdjustment()
+    {
+       // TODO: ADJUST TO RESOLUTION
 
+        //if (cam1 == 23.2) // 16:9
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        //if (cam1 == 19.58218) // 3:2
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        //if (cam1 == 19.575) // 16:10
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        //if (cam1 == 17.4) // 4:3
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        //if (cam1 == 16.30891) // 5:4
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        //if (cam1 == 27.56436) //Free Aspect
+        //{
+        //    offsetX = 1.5f;
+        //    offsetZ = 1f;
+        //    offsetHeight = 2f;
+        //}
+        // THESE ARE 16:9 :
+        offsetX = 1.5f;
+        offsetZ = 1f;
+        offsetHeight = 2f;
+    }
     private void BorderManagement()
     {
-        if (newHead.transform.position.x >= 28)
+        cam1 = cam.transform.position.y * ((float)cam.pixelWidth / cam.pixelHeight) / 2;
+        cam2 = -cam.transform.position.y * ((float)cam.pixelWidth / cam.pixelHeight) / 2;
+        cam3 = cam.transform.position.y * ((float)cam.pixelHeight / cam.pixelWidth);
+        cam4 = -cam.transform.position.y * ((float)cam.pixelHeight / cam.pixelWidth);
+
+        if (newHead.transform.position.x >= cam1 + offsetX + offsetHeight)  // RIGHT
         {
 
-            newHead.transform.position = new Vector3(-26, newHead.transform.position.y, newHead.transform.position.z);
+            newHead.transform.position = new Vector3(cam2- offsetHeight , newHead.transform.position.y, newHead.transform.position.z); 
         }
 
-        if (newHead.transform.position.x <= -28)
+        if (newHead.transform.position.x <= cam2  - offsetX - offsetHeight) // LEFT
         {
 
-            newHead.transform.position = new Vector3(27, newHead.transform.position.y, newHead.transform.position.z);
+            newHead.transform.position = new Vector3(cam1+ offsetZ, newHead.transform.position.y, newHead.transform.position.z); 
         }
-        if (newHead.transform.position.z >= 18)
+        if (newHead.transform.position.z > cam3+ offsetHeight + offsetZ)   //TOP
         {
 
-            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, -13);
+            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, cam4+ offsetHeight); 
         }
-        if (newHead.transform.position.z <= -14)
+        if (newHead.transform.position.z < cam4 + offsetZ) //BOT
         {
 
-            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, 17);
+            newHead.transform.position = new Vector3(newHead.transform.position.x, newHead.transform.position.y, cam3+offsetX);  
         }
     }
 
