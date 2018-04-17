@@ -27,6 +27,7 @@ public class Menu : MonoBehaviour {
     public void Titlescreen()
     {
         SceneManager.LoadScene(0);
+        GameManager.Instance.winningPlayer = -1;
     }
 
     public void Multiplayer()
