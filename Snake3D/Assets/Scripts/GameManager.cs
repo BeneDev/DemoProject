@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(winningPlayer > -1 && SceneManager.GetActiveScene().buildIndex != 2)
-        {
-            SceneManager.LoadScene(2);
-        }
+		//if(winningPlayer > -1 && SceneManager.GetActiveScene().buildIndex != 2)
+  //      {
+  //          SceneManager.LoadScene(2);
+  //      }
 	}
 }

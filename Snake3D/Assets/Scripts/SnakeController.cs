@@ -58,18 +58,11 @@ public class SnakeController : MonoBehaviour {
         {
             foreach (GameObject obj in otherPlayer.GetComponent<SnakeController>().Entities)
             {
-                if (entities.First.Value.gameObject != obj && obj.GetComponent<MeshRenderer>().enabled == true)
+                if (obj.GetComponent<MeshRenderer>().enabled == true)
                 {
                     if (entities.First.Value.gameObject.transform.position == obj.transform.position)
                     {
-                        if(playerNumber == 0)
-                        {
-                            GameManager.Instance.winningPlayer = 2;
-                        }
-                        else
-                        {
-                            GameManager.Instance.winningPlayer = 1;
-                        }
+                        Die();
                     }
                 }
             }
@@ -103,15 +96,13 @@ public class SnakeController : MonoBehaviour {
                 GameManager.Instance.winningPlayer = 1;
             }
         }
-        else
-        {
-            SceneManager.LoadScene(2);
-        }
+        SceneManager.LoadScene(2);
     }
     
     private void Update()
     {
         CheckIfEatingSelf();
+        CheckIfCollidingWithOtherPlayer();
         ReadInput();
         if (frameCounter <= 0)
         {
