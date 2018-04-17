@@ -87,7 +87,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: cf1115bc20f5bd1408ccffa0d98e78d6, type: 2}
+  - {fileID: 2100000, guid: bf147de0838e65341879aaa9fe118501, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634b0f54e852b0547b8d57b4f9a6f307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snakeEntity: {fileID: 1611116107061530, guid: e119095ed47f42449ba66622b7c71918,
+  snakeEntity: {fileID: 1611116107061530, guid: 2e96a6a67eb649942a94e828cd391b99,
     type: 2}
   framesBetweenMoves: 10
   playerNumber: 1

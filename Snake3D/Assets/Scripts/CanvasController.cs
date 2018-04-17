@@ -21,6 +21,14 @@ public class CanvasController : MonoBehaviour {
         else
         {
             text.text = "Player " + GameManager.Instance.winningPlayer +  " won!";
+            if(GameManager.Instance.winningPlayer == 1)
+            {
+                text.color = Color.blue;
+            }
+            else if(GameManager.Instance.winningPlayer == 2)
+            {
+                text.color = Color.red;
+            }
         }
 	}
 }
