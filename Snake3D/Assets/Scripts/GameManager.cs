@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance;
 
+    public int winningPlayer;
 
 	// Use this for initialization
 	void Awake () {
